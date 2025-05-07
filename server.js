@@ -1,4 +1,8 @@
 import express from 'express'
+import { PrismaClient } from '@prisma/client'
+const {PrismaClient} = pkg
+
+const prisma = new PrismaClient()
 
 const app = express()
 app.use(express.json())
@@ -6,16 +10,21 @@ app.use(express.json())
 const users = []
 
 /*Salvar os usuários */
-app.post('/usuarios', (req, res) => {
+app.post('/usuarios', async (req, res) => {
 
-    users.push(req.body)
+   await prisma.user.create({
+    data: {
+        name: req.body.name,
+        testimony: req.body.testimony
+    }
+   })
 
-    res.send('Ok. post')
+    res.status(201).json(req.body)
 })
 
 /*rota listar usuários */
 app.get('/usuarios', (req, res) => {
-    res.json(users)
+    res.status(200).json(users)
 })
 
 
@@ -36,5 +45,8 @@ app.listen(3000)
 /*
     1) Tipo de rota  / Método HTTP
     2) Endereço
+
+    usuarui do mosngoDB
+    balbinojteste senha: T1V4YYmqTFtCY0jg
 */
 
