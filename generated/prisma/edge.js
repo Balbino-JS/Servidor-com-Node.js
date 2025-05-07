@@ -134,7 +134,7 @@ const config = {
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
-    "rootEnvPath": "../../.env",
+    "rootEnvPath": null,
     "schemaEnvPath": "../../.env"
   },
   "relativePath": "../../prisma",
@@ -144,11 +144,12 @@ const config = {
     "db"
   ],
   "activeProvider": "mongodb",
+  "postinstall": false,
   "inlineDatasources": {
     "db": {
       "url": {
         "fromEnvVar": "DATABASE_URL",
-        "value": "mongodb+srv://balbinojteste:T1V4YYmqTFtCY0jg@forminhasmarques.oeoynnc.mongodb.net/forminhasmarques?retryWrites=true&w=majority&appName=forminhasmarques"
+        "value": null
       }
     }
   },
