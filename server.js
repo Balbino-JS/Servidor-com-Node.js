@@ -1,4 +1,5 @@
 import express from 'express';
+import cors from 'cors'
 import pkg from './generated/prisma/index.js'; // caminho correto para o Prisma Client gerado
 import { ObjectId } from 'bson'; 
 
@@ -9,6 +10,7 @@ const prisma = new PrismaClient();
 
 const app = express();
 app.use(express.json());
+app.use(cors())
 
 /* Salvar os usuários */
 app.post('/usuarios', async (req, res) => {
