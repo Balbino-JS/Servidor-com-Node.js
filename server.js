@@ -1,6 +1,6 @@
 import express from 'express';
 import cors from 'cors'
-import pkg from './generated/prisma/index.js'; // caminho correto para o Prisma Client gerado
+import pkg from './generated/prisma/index.js'; 
 import { ObjectId } from 'bson'; 
 
 
@@ -19,7 +19,7 @@ app.post('/usuarios', async (req, res) => {
             data: {
                 name: req.body.name,
                 testimony: req.body.testimony
-            }
+                }
         });
 
         res.status(201).json(user);
@@ -38,7 +38,7 @@ app.get('/usuarios', async (req, res) => {
     }
 })
 
-// auteraça~de usuários
+// auteraçaa de usuários
 
 app.put('/usuarios/:id', async (req, res) => {
     try {
